@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% load widget_tweaks %}
+{% load i18n static %}
+{% block content %}
+<div class="login-page">
+    <form method="post" class="card-form signup-form">
+        <h2>Sign Up</h2>
+        {% csrf_token %}
+        <div class="form-txt signup-txt">
+            {% render_field form.username %}
+            <span data-placeholder="Username"></span>
+        </div>
+        {% if form.username.errors %}
+        <span class="red message">{{ form.username.errors.0 }}</span>
+        {% endif %}
+        <p>{{ form.username.help_text }}</p>
+
+        <div class="form-txt signup-txt">
+            {% render_field form.email %}
+            <span data-placeholder="Email address"></span>
+        </div>
+        {% if form.email.errors %}
+        <span class="red message">{{ form.email.errors.0 }}</span>
+        {% endif %}
+
+        <div class="form-txt signup-txt">
+            {% render_field form.password1 %}
+            <span data-placeholder="Password"></span>
+        </div>
+
+        {{ form.password1.help_text }}
+
+        <div class="form-txt signup-txt">
+            {% render_field form.password2 %}
+            <span data-placeholder="Password (confirm)"></span>
+        </div>
+
+        {% if form.password2.errors %}
+        <span class="red message">{{ form.password2.errors.0 }}</span>
+        {% endif %}
+
+        <div class="clearfix">
+            <button type="submit" class="btn" style="float:right">Sign Up</button>
+        </div>
+
+        <div class="form-footer">
+            <a class="btn btn-sub" href="{% url 'login' %}">Sign in my app</a>
+        </div>
+
+    </form>
+
+</div>
+{% endblock %}
+
+

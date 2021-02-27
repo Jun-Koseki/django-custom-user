@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load i18n static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="login-page">
+    <form method="post" class="card-form login-form">
+        <h2>Welcome back to My app</h2>
+        {% csrf_token %}
+        <div class="form-txt login-user-txt">
+            {% render_field form.username %}
+            <span data-placeholder="Username"></span>
+        </div>
+        <div class="form-txt login-pass-txt">
+            {% render_field form.password %}
+            <span data-placeholder="Password"></span>
+        </div>
+        <div>
+            <a href="{% url 'password_reset' %}" class="guide-link">Forgot password?</a>
+        </div>
+
+        <div class="clearfix">
+            <button type="submit" class="btn" style="float:right">
+                Login
+            </button>
+        </div>
+
+        <div class="form-footer">
+            <a class="btn-sub" href="{% url 'accounts:signup' %}">Create new account</a>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+
+
+</script>
+{% endblock %}

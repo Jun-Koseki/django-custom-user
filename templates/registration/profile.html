@@ -1,0 +1,58 @@
+{% extends "myapp/base.html" %}
+{% load i18n static %}
+{% load widget_tweaks %}
+{% block title %}Profile{% endblock %}
+{% block main %}
+<div class="card-content">
+    <div class="card" id="card">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="card-title">Profile change</h1 class="card-title">
+            </div>
+        </div>
+
+        <form action="" method="post" class="profile-form">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-3 offset-md-1">
+                    <p>{{ form.username.label }}</p>
+                </div>
+                <div class="col-md-7">
+                    {% render_field form.username class="form-control card-input" %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 offset-md-1">
+                    <p>{{ form.email.label }}</p>
+                </div>
+                <div class="col-md-7">
+                    {% render_field form.email class="form-control card-input" %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 offset-md-1">
+                    <p>{{ form.bio.label }}</p>
+                </div>
+                <div class="col-md-7">
+                    {% render_field form.bio class="form-control card-input" %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 offset-md-1">
+                    <p>{{ form.website.label }}</p>
+                </div>
+                <div class="col-md-7">
+                    {% render_field form.website class="form-control card-input" %}
+                </div>
+            </div>
+
+            <div class="clearfix">
+                <button type="submit" class="btn card-btn" style="float:right">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

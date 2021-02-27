@@ -1,0 +1,31 @@
+{% extends "myapp/base.html" %}
+{% load i18n static %}
+{% block title %}Top{% endblock %}
+{% block main %}
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+
+            <div class="panel-content">
+                <h3><i class="fas fa-user"></i>{{ request.user.username }}</h3>
+                <p class="email">{{ request.user.email }}</p>
+                <p class="bio">{{ request.user.bio }}</p>
+                <a class="website" href="{{ request.user.website }}">{{ request.user.website }}</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="content-header">
+                <h1>Contents</h1>
+            </div>
+
+            <div class="panel-content" style="height: 500px;">
+                <img src="{% static 'images/app.svg' %}" alt="" >
+                <p style="text-align: center;">My app's main content is here.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
