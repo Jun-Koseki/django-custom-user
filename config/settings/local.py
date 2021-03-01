@@ -2,7 +2,7 @@ from .base import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = '<secret_key>'
+SECRET_KEY = '@1l-p@yq+fw+zu+5!qmw(@tc)t3nyn$^(@448xwzzly2%dl0-9'
 
 DEBUG = True
 

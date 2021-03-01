@@ -9,7 +9,7 @@
         {% csrf_token %}
         <div class="form-txt login-user-txt">
             {% render_field form.username %}
-            <span data-placeholder="Username"></span>
+            <span data-placeholder="Email address"></span>
         </div>
         <div class="form-txt login-pass-txt">
             {% render_field form.password %}
@@ -31,6 +31,7 @@
     </form>
 
 </div>
+
 {% endblock %}
 {% block extra_js %}
 <script>

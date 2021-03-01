@@ -21,9 +21,9 @@ class SignUpView(SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         valid = super(SignUpView, self).form_valid(form)
-        username, password = form.cleaned_data.get('username'), form.cleaned_data.get('password1')
+        email, password = form.cleaned_data.get('email'), form.cleaned_data.get('password1')
         # 新規登録したユーザでログイン
-        new_user = authenticate(username=username, password=password)
+        new_user = authenticate(email=email, password=password)
         login(self.request, new_user)
         logger.info("User ID: {} has been registered.".format(new_user.id))
         return valid

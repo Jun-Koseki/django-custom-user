@@ -35,16 +35,6 @@ class TestAccountsView(TestCase):
 
     def test_post_signup_error(self):
         """ 誤った入力値で新規ユーザの登録処理が失敗することを検証 """
-        # すでに登録済みのユーザ名を入力
-        post_same_name = self.client.post("/accounts/signup/", {
-            'username': 'user1',
-            'email': 'user3@example.com',
-            'password1': 'p@ssZaq12wsx',
-            'password2': 'p@ssZaq12wsx'
-        })
-        # エラーメッセージの検証
-        self.assertFormError(post_same_name, 'form', 'username', 'A user with that username already exists.')
-
         # すでに登録済みのメールアドレスを入力
         post_same_mail = self.client.post("/accounts/signup/", {
             'username': 'user3',
@@ -57,5 +47,5 @@ class TestAccountsView(TestCase):
 
     def test_login(self):
         """ 登録済みユーザでログインできることを検証 """
-        logged_in = self.client.login(username=self.user.username, password='p@ssZaq12wsx')
+        logged_in = self.client.login(username=self.user.email, password='p@ssZaq12wsx')
         self.assertTrue(logged_in)
