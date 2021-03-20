@@ -16,7 +16,7 @@
             </li>
             <li class="nav-item dropdown my-2 my-lg-0">
                 <a class="nav-link active dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown2" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ request.user }} </a>
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ request.user.email }} </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{% url 'accounts:profile' %}">Change profile</a>
                     <a class="dropdown-item" href="{% url 'accounts:change_password' %}">Change password</a>
