@@ -32,11 +32,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    username = models.CharField(
-        max_length=150,
-        blank=True,
-        null=True,
-    )
+    username = models.CharField(max_length=150)
     email = models.EmailField(_('email'), unique=True)
     bio = models.TextField(_('bio'), blank=True)
     website = models.URLField(_('website'), blank=True)
@@ -47,4 +43,4 @@ class User(AbstractUser):
     objects = UserManager()
 
     def __str__(self):
-        return self.username
+        return self.email

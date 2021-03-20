@@ -8,6 +8,14 @@
         <h2>Sign Up</h2>
         {% csrf_token %}
         <div class="form-txt signup-txt">
+            {% render_field form.email %}
+            <span data-placeholder="Email address"></span>
+        </div>
+        {% if form.email.errors %}
+        <span class="red message">{{ form.email.errors.0 }}</span>
+        {% endif %}
+
+        <div class="form-txt signup-txt">
             {% render_field form.username %}
             <span data-placeholder="Username"></span>
         </div>
@@ -15,14 +23,6 @@
         <span class="red message">{{ form.username.errors.0 }}</span>
         {% endif %}
         <p>{{ form.username.help_text }}</p>
-
-        <div class="form-txt signup-txt">
-            {% render_field form.email %}
-            <span data-placeholder="Email address"></span>
-        </div>
-        {% if form.email.errors %}
-        <span class="red message">{{ form.email.errors.0 }}</span>
-        {% endif %}
 
         <div class="form-txt signup-txt">
             {% render_field form.password1 %}
