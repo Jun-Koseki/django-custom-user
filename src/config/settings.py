@@ -153,3 +153,6 @@ MESSAGE_TAGS = {
  }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# password
+PASSWORD_EXPIRY = 60 * 60 * 24 * 30
