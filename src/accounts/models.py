@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from datetime import timedelta
 
 
-def get_password_limit():
+def get_password_expiry():
     try:
         limit = int(getattr(settings, "PASSWORD_EXPIRY"))
     except ValueError:
@@ -74,14 +74,19 @@ class User(AbstractUser):
         return self
 
     def password_has_been_expired(self):
+        if self.__is_initial_password():
+            return True
         password_period = localtime() - self.last_modified_pw
-        if password_period > timedelta(seconds=get_password_limit()):
+        if password_period > timedelta(seconds=get_password_expiry()):
             return True
         else:
             return False
 
     def __password_has_been_changed(self):
         return self.original_password != self.password
+
+    def __is_initial_password(self):
+        return self.last_modified_pw is None
 
 
 class UserPasswordHistory(models.Model):

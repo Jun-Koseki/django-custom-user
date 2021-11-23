@@ -123,6 +123,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'accounts.validators.DontRepeatValidator',
+    },
 ]
 
 LANGUAGE_CODE = 'en-us'
@@ -155,4 +158,6 @@ MESSAGE_TAGS = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # password
-PASSWORD_EXPIRY = 60 * 60 * 24 * 30
+#PASSWORD_EXPIRY = 60 * 60 * 24 * 30
+PASSWORD_EXPIRY = 5
+PASSWORD_HISTORY = 3
