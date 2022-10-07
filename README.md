@@ -1,4 +1,5 @@
 # django-custom-user
+
 This is a sample project using the build-in authentication system in Django. 
 
 This projects consists of:
